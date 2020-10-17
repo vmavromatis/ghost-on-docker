@@ -1,10 +1,10 @@
-FROM alexellis2/nodejs-armhf:6.9.2
+FROM arm32v7/node:latest
 
 USER root
 WORKDIR /var/www/
 RUN mkdir -p ghost
 RUN apt-get update && apt-get -qy install wget unzip && \
-    wget https://github.com/TryGhost/Ghost/releases/download/0.11.8/Ghost-0.11.8.zip && \
+    wget https://github.com/TryGhost/Ghost/releases/download/3.35.5/Ghost-3.35.5.zip && \
     unzip Ghost-*.zip -d ghost && \
     apt-get -y remove wget unzip && \
     rm -rf /var/lib/apt/lists/*
